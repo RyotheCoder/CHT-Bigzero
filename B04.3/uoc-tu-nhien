@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long num[1000001];
+long long sum[1000001];
+
+long long a[1000001];
+long long b[1000001];
+
+int main () {
+    freopen("NATDIV.INP", "r", stdin);
+    freopen("NATDIV.OUT", "w", stdout);
+    for (long long i=1; i<=1000000; i++) {
+        for (int j=i; j<=1000000; j+=i) {
+            num[j]++;
+            sum[j]+=i;
+        }
+    }
+
+    for (long long i=1; i<=1000000; i++) {
+        a[i]=a[i-1] + num[i];
+        b[i]=b[i-1] + sum[i];
+    }
+
+    long long t;
+    cin >> t;
+    while (t--) {
+        long long x, y, n, s;
+        n=0;
+        s=0;
+        cin >> x >> y;
+        cout << a[y] - a[x-1] << " " << b[y] - b[x-1] << '\n';
+    }
+}
