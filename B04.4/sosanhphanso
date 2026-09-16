@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main () {
+    long long a, b, c, d, n, lcm, amin, cmin;
+    cin >> n;
+    while (n--) {
+        cin >> a >> b >> c >> d;
+        lcm=(b*d)/__gcd(b,d);
+        amin=a*(lcm/b);
+        cmin=c*(lcm/d);
+        if(amin > cmin) {
+            cout << 1 << endl;
+        } else if (amin == cmin) {
+            cout << 0 << endl;
+        } else {
+            cout << -1 << endl;
+        }
+    }
+}
